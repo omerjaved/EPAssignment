@@ -9,21 +9,39 @@
  * @author Omer
  */
 public class Television extends Electronic{
-    private String brand;
     private double screenSize;
     private int energyRating;
-    private int weight;
+    private float weight;
     
     
-    public Television(String br, double ss, int er, int wa, int w, int ty){
-        super(wa, ty);
-        this.brand = br;
+    public Television(String br, double ss, int er, int wa, float we, int ty){
+        super(wa, ty, br);
         this.screenSize = ss;
         this.energyRating = er;
-        this.weight = w;
+        this.weight = we;
     }
     
+    public double getScreenSize(){
+        return this.screenSize;
+    }
     
+    public void setScreenSize(double ss){
+        this.screenSize = ss;
+    }
     
+    public int getEnergyRating(){
+        return this.energyRating;
+    }
     
+    public void EnergyRating(int er){
+        this.energyRating = er;
+    }
+    
+    public float getWeight(){
+        return this.weight;
+    }
+    
+    public void setWeight(float we){
+        this.weight = we;
+    }
 }
