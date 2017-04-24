@@ -12,7 +12,7 @@ public class TEST {
     public static void main(String args []){
         Stocks stock = new Stocks();
         try{
-            stock.populateStockFromFile("Stocks.txt");
+            stock.popultteStockFromFile("Stocks.txt");
         }
         catch(StockLimitException ex){
             System.out.println(ex.returnMsg());
