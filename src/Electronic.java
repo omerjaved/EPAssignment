@@ -11,13 +11,15 @@
 public class Electronic {
     private int warranty;
     private int type;
+    private String brand;
     
     public Electronic(){
         this.warranty = 2;
     }
-    public Electronic(int wa, int ty){
+    public Electronic(int wa, int ty, String br){
         this.warranty = wa;
         this.type = ty;
+        this.brand = br;
     }
     
     public int getWarranty(){
@@ -25,5 +27,13 @@ public class Electronic {
     }
     public void setWarranty(int wa){
         this.warranty = wa;
+    }
+    
+    public String getBrand(){
+        return this.brand;
+    }
+    
+    public void setBrand(String br){
+        this.brand = br;
     }
 }
