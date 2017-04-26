@@ -22,3 +22,7 @@ Task 5: Similarly, define a method to populate the product objects from Console 
 Task 6: Save the current repository in a file (ex., “Repository.txt”). Create one record for each product in your digital repository and write the quantity field as 1.
 
 Task 7: Define an appropriate test class with main function to demonstrate the functionalities of your code.
+
+
+
+Stocks.txt ka format kaha hai.???
