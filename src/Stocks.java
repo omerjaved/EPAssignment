@@ -100,7 +100,7 @@ public class Stocks implements StockLimit{
                     
                     if (this.currentTVStock+quantity <= MAXTVSTOCK){
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++){ 
-                            this.stocks[j] = new Television(brand, SS, energyRating, weight, 5, 2); // Assuming two years of warranty
+                            this.stocks[j] = new Television(brand, SS, energyRating, 2, weight, 2); // Assuming two years of warranty
                         }
                         this.currentTVStock += quantity;
                         if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
@@ -119,7 +119,7 @@ public class Stocks implements StockLimit{
                     
                     if (this.currentLaptopStock+quantity <= MAXLAPTOPSTOCK){
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++){ 
-                            this.stocks[j] = new Laptop(brand, SS, RAM, OS, 3, 3); // Assuming two years of warranty
+                            this.stocks[j] = new Laptop(brand, SS, RAM, 2, OS, 3); // Assuming two years of warranty
                         }
                         this.currentLaptopStock += quantity;
                         if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
