@@ -8,7 +8,7 @@
  *
  * @author Omer
  */
-public class StockLimitException extends Exception{
+public class StockLimitException extends Exception implements StockLimit{
     
     
 }
