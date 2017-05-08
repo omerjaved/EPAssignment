@@ -46,12 +46,39 @@ public class Stocks implements StockLimit{
                     for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++ ){
                         this.stocks[j] = new SmartPhone(brand, ss, st, 2, 1);
                     }
+                    this.currentPhoneStock += quantity;
+                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                }
+            }
+            
+            if (type == 2){
+                System.out.println("Enter Energy Rating of the Television:"); 
+                double eRating = Double.parseDouble(s.nextLine());
+                System.out.println("Enter weight of the Television:"); 
+                double weight = Double.parseDouble(s.nextLine());
+                if (this.currentTVStock+quantity <= MAXTVSTOCK){
+                    for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++ ){
+                        this.stocks[j] = new Television(brand, ss, eRating, 2, weight, 2);
+                    }
                     this.currentTVStock += quantity;
                         if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                 }
             }
             
-            
+            if (type == 3){
+                System.out.println("Enter RAM of the Laptop:"); 
+                int ram = Integer.parseInt(s.nextLine());
+                System.out.println("Enter Operating System of the Laptop:"); 
+                String os = s.nextLine();
+                
+                if (this.currentLaptopStock+quantity <= MAXLAPTOPSTOCK){
+                    for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++ ){
+                        this.stocks[j] = new Laptop(brand, ss, ram, 2, os, 3);
+                    }
+                    this.currentLaptopStock += quantity;
+                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                }
+            }
             
     }
     
@@ -90,7 +117,7 @@ public class Stocks implements StockLimit{
                     i += 5;
                 }
                 
-                if (tokens[0].equals( "Type") & tokens[1].equals("2")){ // This is smartphone type
+                if (tokens[0].equals( "Type") & tokens[1].equals("2")){ // This is Television type
                     System.out.println("Type 2 object found");
                     int quantity = Integer.parseInt(inputs[i+1].split(delims)[1]);
                     String brand = inputs[i+2].split(delims)[1];
@@ -109,7 +136,7 @@ public class Stocks implements StockLimit{
                     i += 6;
                 }
                 
-                if (tokens[0].equals( "Type") & tokens[1].equals("3")){ // This is smartphone type
+                if (tokens[0].equals( "Type") & tokens[1].equals("3")){ // This is Laptop type
                     System.out.println("Type 3 object found");
                     int quantity = Integer.parseInt(inputs[i+1].split(delims)[1]);
                     String brand = inputs[i+2].split(delims)[1];

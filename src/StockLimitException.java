@@ -9,6 +9,15 @@
  * @author Omer
  */
 public class StockLimitException extends Exception implements StockLimit{
+    private String message =  "Default Message"; 
+    
+    public StockLimitException(){
+        message = "Unable to add stock. Stock Inventory is full";
+    }
+    
+    public String returnMsg(){
+        return message;
+    }
     
     
 }
