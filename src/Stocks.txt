@@ -1,0 +1,16 @@
+Type:1
+Quantity:5
+Brand:Samsung
+ScreenSize:5.8
+Storage:64
+Type:2
+Quantity:10
+Brand:LG
+ScreenSize:48
+EnergyRating:220
+Weight:15
+Type:1
+Quantity:2
+Brand:HTC
+ScreenSize:5.5
+Storage:32
