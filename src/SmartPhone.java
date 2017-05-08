@@ -33,4 +33,5 @@ public class SmartPhone extends Electronic {
     public void setStorage(int st){
         this.storage = st;
     }
+    
 }
