@@ -12,18 +12,18 @@ public class TEST {
     public static void main(String args []){
         Stocks stock = new Stocks();
         try{
-            stock.populateStockFromFile("Stocks.txt");
+            stock.populateStockFromFile("src/Stocks.txt");
         }
         catch(StockLimitException ex){
             System.out.println(ex.returnMsg());
         }
         
-        try{
+        /*try{
             stock.populateStockFromConsole();
         }
         catch(StockLimitException ex){
             System.out.println(ex.returnMsg());
-        }
+        }*/
         
         System.out.println("In the main Function");
         System.out.println(stock.totalCurrentStocks());
