@@ -12,11 +12,11 @@ public class StockLimitException extends Exception implements StockLimit{
     private String message =  "Default Message"; 
     
     public StockLimitException(){
-        message = "Unable to add stock. Stock Limit reached";
+        message = "Stock Limit Reached, Unable to Write to Repository";
         System.out.println(message);
     }
     
-    public String returnMsg(){
+    public String LimitReached(){
         return message;
     }
     
