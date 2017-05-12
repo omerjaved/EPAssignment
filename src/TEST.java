@@ -12,7 +12,7 @@ public class TEST {
     public static void main(String args []){
         Stocks stock = new Stocks();
         try{
-        stock.popStockFromFile("Stocks.stxt");
+        stock.popStockFromFile("Stocks.txt");
         }catch(Exception e){
             System.out.println("File not found");
         }
