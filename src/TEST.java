@@ -12,18 +12,18 @@ public class TEST {
     public static void main(String args []){
         Stocks stock = new Stocks();
         try{
-        stock.populateStockFromFile("src/Stocks.txt");
+        stock.popStockFromFile("Stocks.stxt");
         }catch(Exception e){
             System.out.println("File not found");
         }
         //System.out.println(stock.totalCurrentStocks());
         try{
-            stock.populateStockFromConsole();
+            stock.popStockFromConsole();
             System.out.println("Stock Succesfully written to repository");
         }catch(StockLimitException e){
-            System.out.println(e.returnMsg());
+            System.out.println(e.LimitReached());
         }
-        stock.writeToRepository();
+        stock.writeRepo();
         
         /*for (int i = 0; i < stock.totalCurrentStocks(); i++){
             //System.out.println(stock.stocks[i].getWarranty());
