@@ -10,13 +10,13 @@
  */
 public class Laptop extends Electronic {
     private int ram;
-    private String operatingSystem;
+    private String opSystem;
     
     
     public Laptop(String br, double ss, int ram, int wa, String os, int ty){
         super(wa, ty, br, ss);
         this.ram = ram;
-        this.operatingSystem = os;
+        this.opSystem = os;
     }
     
     public int getRam(){
@@ -27,12 +27,12 @@ public class Laptop extends Electronic {
         this.ram = ram;
     }
     
-    public String getOperatingSystem(){
-        return this.operatingSystem;
+    public String getOpSystem(){
+        return this.opSystem;
     }
     
-    public void setOperatingSystem(String os){
-        this.operatingSystem = os;
+    public void setOpSystem(String os){
+        this.opSystem = os;
     }
 }
 
