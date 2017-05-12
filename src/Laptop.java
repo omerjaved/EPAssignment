@@ -9,24 +9,14 @@
  * @author Omer
  */
 public class Laptop extends Electronic {
-    private double screenSize;
     private int ram;
     private String operatingSystem;
     
     
     public Laptop(String br, double ss, int ram, int wa, String os, int ty){
-        super(wa, ty, br);
-        this.screenSize = ss;
+        super(wa, ty, br, ss);
         this.ram = ram;
         this.operatingSystem = os;
-    }
-    
-    public double getScreenSize(){
-        return this.screenSize;
-    }
-    
-    public void setScreenSize(double ss){
-        this.screenSize = ss;
     }
     
     public int getRam(){
