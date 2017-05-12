@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -11,14 +12,17 @@ import java.util.Scanner;
  */
 public class Stocks implements StockLimit{
     
-    public Electronic [] stocks;
+    //public Electronic [] stocks;
+    public static ArrayList <SmartPhone> smartphones=new ArrayList<>();	
+    public static ArrayList <Television> televisions=new ArrayList<>();	
+    public static ArrayList <Laptop> laptops=new ArrayList<>();
     private int currentPhoneStock;
     private int currentTVStock;
     private int currentLaptopStock;
     Scanner s = new Scanner(System.in);
     
     public Stocks(){
-        this.stocks = new Electronic [1000];
+        
         this.currentPhoneStock = 0;
         this.currentTVStock = 0;
         this.currentLaptopStock = 0;
@@ -44,11 +48,14 @@ public class Stocks implements StockLimit{
                 
                 if (this.currentPhoneStock+quantity <= MAXPHONESTOCK){
                     for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++ ){
-                        this.stocks[j] = new SmartPhone(brand, ss, st, 2, 1);
+                        SmartPhone sp = new SmartPhone(brand, ss, st, 2, 1);
+                        smartphones.add(sp);
+                        writeToRepository();
                     }
                     this.currentPhoneStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                    //if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                 }
+                else if (this.currentPhoneStock+quantity >= MAXPHONESTOCK || this.currentPhoneStock+quantity >= TOTALSTOCK) throw new StockLimitException();
             }
             
             if (type == 2){
@@ -58,11 +65,14 @@ public class Stocks implements StockLimit{
                 double weight = Double.parseDouble(s.nextLine());
                 if (this.currentTVStock+quantity <= MAXTVSTOCK){
                     for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++ ){
-                        this.stocks[j] = new Television(brand, ss, eRating, 2, weight, 2);
+                        Television tv = new Television(brand, ss, eRating, 2, weight, 2);
+                        televisions.add(tv);
+                        writeToRepository();
                     }
                     this.currentTVStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                    //if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                 }
+                else if (this.currentTVStock+quantity >= MAXTVSTOCK || this.currentTVStock+quantity >= TOTALSTOCK) throw new StockLimitException();
             }
             
             if (type == 3){
@@ -73,11 +83,14 @@ public class Stocks implements StockLimit{
                 
                 if (this.currentLaptopStock+quantity <= MAXLAPTOPSTOCK){
                     for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++ ){
-                        this.stocks[j] = new Laptop(brand, ss, ram, 2, os, 3);
+                        Laptop l = new Laptop(brand, ss, ram, 2, os, 3);
+                        laptops.add(l);
+                        writeToRepository();
                     }
                     this.currentLaptopStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                    //if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                 }
+                else if (this.currentLaptopStock+quantity >= MAXLAPTOPSTOCK || this.currentLaptopStock+quantity >= TOTALSTOCK) throw new StockLimitException();
             }
             
     }
@@ -108,10 +121,12 @@ public class Stocks implements StockLimit{
                     
                     if (this.currentPhoneStock+quantity <= MAXPHONESTOCK){
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++){ 
-                            this.stocks[j] = new SmartPhone(brand, SS, storage, 2, 1); // Assuming two years of warranty
+                            SmartPhone sp = new SmartPhone(brand, SS, storage, 2, 1); // Assuming two years of warranty
+                            smartphones.add(sp);
+                            writeToRepository();
                         }
                         this.currentPhoneStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                        if (this.totalCurrentStocks()+quantity >= TOTALSTOCK) throw new StockLimitException();
                     } 
                     
                     i += 5;
@@ -127,10 +142,12 @@ public class Stocks implements StockLimit{
                     
                     if (this.currentTVStock+quantity <= MAXTVSTOCK){
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++){ 
-                            this.stocks[j] = new Television(brand, SS, energyRating, 2, weight, 2); // Assuming two years of warranty
+                            Television tv = new Television(brand, SS, energyRating, 2, weight, 2); // Assuming two years of warranty
+                            televisions.add(tv);
+                            writeToRepository();
                         }
                         this.currentTVStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                        if (this.totalCurrentStocks()+quantity >= TOTALSTOCK) throw new StockLimitException();
                     } 
                     
                     i += 6;
@@ -146,10 +163,12 @@ public class Stocks implements StockLimit{
                     
                     if (this.currentLaptopStock+quantity <= MAXLAPTOPSTOCK){
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++){ 
-                            this.stocks[j] = new Laptop(brand, SS, RAM, 2, OS, 3); // Assuming two years of warranty
+                            Laptop l = new Laptop(brand, SS, RAM, 2, OS, 3); // Assuming two years of warranty
+                            laptops.add(l);
+                            writeToRepository();
                         }
                         this.currentLaptopStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
+                        if (this.totalCurrentStocks()+quantity >= TOTALSTOCK) throw new StockLimitException();
                     } 
                     
                     i += 6;
@@ -160,6 +179,59 @@ public class Stocks implements StockLimit{
         catch(IOException ex){
             System.out.println("File not found");
         }
-    }    
-       
+    }
+
+    public void writeToRepository(){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Repository.txt"))) {
+
+		//for smartphones	
+        for(SmartPhone sp:smartphones){
+            bw.write("Type:1");
+            bw.newLine();
+            bw.write("Quantity:1");
+            bw.newLine();
+            bw.write("Brand:"+sp.getBrand());
+            bw.newLine();
+            bw.write("ScreenSiz:"+sp.getScreenSize());
+            bw.newLine();
+            bw.write("Storage:"+sp.getStorage());
+            bw.newLine();
+         //bw.write("Type:1\nQuantity:1\nBrand:" + sp.getBrandName()+"\nScreen:" + sp.getScreenSize() +"\nStorage:" + sp.getStorage()+"\n");
+         }
+		 
+		 		//for Television	
+        for(Television tv:televisions){
+            bw.write("Type:2");
+            bw.newLine();
+            bw.write("Quantity:1");
+            bw.newLine();
+            bw.write("Brand:"+tv.getBrand());
+            bw.newLine();
+            bw.write("EnergyRating:"+tv.getEnergyRating());
+            bw.newLine();
+            bw.write("Weight:"+tv.getWeight());
+            bw.newLine();
+         }
+		 
+	for(Laptop lp:laptops){
+            bw.write("Type:3");
+            bw.newLine();
+            bw.write("Quantity:1");
+            bw.newLine();
+            bw.write("Brand:"+lp.getBrand());
+            bw.newLine();
+            bw.write("RAM:"+lp.getRam());
+            bw.newLine();
+            bw.write("Operating System:"+lp.getOperatingSystem());
+            bw.newLine();
+        }
+        bw.close();
+	} catch (IOException e) {
+            e.printStackTrace();
+	}
+
+    }
+
 }
+       
+

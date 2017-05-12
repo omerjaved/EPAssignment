@@ -12,23 +12,20 @@ public class TEST {
     public static void main(String args []){
         Stocks stock = new Stocks();
         try{
-            stock.populateStockFromFile("src/Stocks.txt");
+        stock.populateStockFromFile("src/Stocks.txt");
+        }catch(Exception e){
+            System.out.println("File not found");
         }
-        catch(StockLimitException ex){
-            System.out.println(ex.returnMsg());
-        }
-        
-        /*try{
+        //System.out.println(stock.totalCurrentStocks());
+        try{
             stock.populateStockFromConsole();
+        }catch(StockLimitException e){
+            System.out.println(e.returnMsg());
         }
-        catch(StockLimitException ex){
-            System.out.println(ex.returnMsg());
-        }*/
+        stock.writeToRepository();
         
-        System.out.println("In the main Function");
-        System.out.println(stock.totalCurrentStocks());
-        for (int i = 0; i < stock.totalCurrentStocks(); i++){
+        /*for (int i = 0; i < stock.totalCurrentStocks(); i++){
             //System.out.println(stock.stocks[i].getWarranty());
-        }
+        }*/
     }
 }

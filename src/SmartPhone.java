@@ -34,4 +34,5 @@ public class SmartPhone extends Electronic {
         this.storage = st;
     }
     
+    
 }
