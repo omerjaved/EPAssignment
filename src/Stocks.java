@@ -108,7 +108,7 @@ public class Stocks implements StockLimit{
                     inputs[index++] = line;
                 }                    
             }
-            System.out.println(index);
+            //System.out.println(index);
             for(int i = 0; i < index; ){
                 //System.out.println(inputs[i]);
                 String[] tokens = inputs[i].split(delims);
@@ -229,7 +229,7 @@ public class Stocks implements StockLimit{
 	} catch (IOException e) {
             e.printStackTrace();
 	}
-
+        
     }
 
 }
