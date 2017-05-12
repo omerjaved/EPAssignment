@@ -9,21 +9,12 @@
  * @author Omer
  */
 public class SmartPhone extends Electronic {
-    private double screenSize;
+    
     private int storage;
     
     public SmartPhone(String br, double ss, int st, int wa, int ty){
-        super(wa, ty, br);
-        this.screenSize = ss;
+        super(wa, ty, br, ss);
         this.storage = st;      
-    }
-    
-    public double getScreenSize(){
-        return this.screenSize;
-    }
-    
-    public void setScreenSize(double ss){
-        this.screenSize = ss;
     }
     
     public int getStorage(){
