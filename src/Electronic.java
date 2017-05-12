@@ -12,14 +12,23 @@ public class Electronic {
     private int warranty;
     private int type;
     private String brand;
+    private double screenSize;
     
     public Electronic(){
         this.warranty = 2;
     }
-    public Electronic(int wa, int ty, String br){
+    public Electronic(int wa, int ty, String br, double screenSize){
         this.warranty = wa;
         this.type = ty;
         this.brand = br;
+    }
+    
+    public double getScreenSize(){
+        return this.screenSize;
+    }
+    
+    public void setScreenSize(double ss){
+        this.screenSize = ss;
     }
     
     public int getWarranty(){
