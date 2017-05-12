@@ -19,6 +19,7 @@ public class TEST {
         //System.out.println(stock.totalCurrentStocks());
         try{
             stock.populateStockFromConsole();
+            System.out.println("Stock Succesfully written to repository");
         }catch(StockLimitException e){
             System.out.println(e.returnMsg());
         }
