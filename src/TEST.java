@@ -24,9 +24,6 @@ public class TEST {
             System.out.println(e.LimitReached());
         }
         stock.writeRepo();
-        
-        /*for (int i = 0; i < stock.totalCurrentStocks(); i++){
-            //System.out.println(stock.stocks[i].getWarranty());
-        }*/
+       
     }
 }
