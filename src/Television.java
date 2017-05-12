@@ -9,23 +9,23 @@
  * @author Omer
  */
 public class Television extends Electronic{
-    private double energyRating;
+    private double eRating;
     private double weight;
     
     
     public Television(String br, double ss, double er, int wa, double we, int ty){
         super(wa, ty, br, ss);
-        this.energyRating = er;
+        this.eRating = er;
         this.weight = we;
     }
     
     
-    public double getEnergyRating(){
-        return this.energyRating;
+    public double getERating(){
+        return this.eRating;
     }
     
-    public void setEnergyRating(double er){
-        this.energyRating = er;
+    public void setERating(double er){
+        this.eRating = er;
     }
     
     public double getWeight(){
