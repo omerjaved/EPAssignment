@@ -9,9 +9,9 @@
  * @author Omer
  */
 public interface StockLimit {
-    public static final int MAXPHONESTOCK = 200;
-    public static final int MAXLAPTOPSTOCK = 100;
-    public static final int MAXTVSTOCK = 50;
+    public static final int MAXIMUMPHONESTOCK = 200;
+    public static final int MAXIMUMLAPTOPSTOCK = 100;
+    public static final int MAXIMUMTVSTOCK = 50;
     public static final int TOTALSTOCK = 350;
     
 }
