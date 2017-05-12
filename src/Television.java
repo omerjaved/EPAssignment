@@ -19,11 +19,12 @@ public class Television extends Electronic{
         this.weight = we;
     }
     
+    
     public double getEnergyRating(){
         return this.energyRating;
     }
     
-    public void EnergyRating(double er){
+    public void setEnergyRating(double er){
         this.energyRating = er;
     }
     
